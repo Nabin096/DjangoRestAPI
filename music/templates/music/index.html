@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Store</title>
+</head>
+<body>
+  <form method="post" action="{% url 'register' %}" >
+      {% csrf_token %}
+      <input type="text" name="artist">
+      <br>
+      <input type="text" name="album_title">
+      <br>
+      <button type="submit">Submit</button>
+  </form>
+
+<br>
+  <img src="{%  static 'img/1.png' %}" style="height:300px;width: 40%" align="center">
+<div>
+    <ul>
+        {% for album in albums %}
+          <li>{{ album.artist }}</li>
+        {% endfor %}
+    </ul>
+
+
+</div>
+</body>
+</html>
